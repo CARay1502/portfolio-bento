@@ -67,9 +67,6 @@ mark {
     font-weight: bold;
 }
 .nav-fun-fact {
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
     color: grey;
     font-weight: 400;
     

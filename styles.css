@@ -1,5 +1,5 @@
 /* DISCLAIMER: If you thought this was written by AI, this CSS shit will prove you wrong.  */
-/* I already know htis is very unoptimized css but idc */  
+/* I already know htis is very unoptimized css, I'm still learning */  
 /* Utilizes Bootstrap min.css but customized with custom written css styling override cause I enjoy pain and work. */
 
 * {
@@ -66,7 +66,14 @@ mark {
 .navbar-brand {
     font-weight: bold;
 }
-
+.nav-fun-fact {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: grey;
+    font-weight: 400;
+    
+}
 /* main background */
 main {
     background-image: radial-gradient(#d3d3d3 1px, transparent 1px);

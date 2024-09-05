@@ -10,3 +10,18 @@ window.addEventListener('load', function () {
         toast.show();
     }, 3000);
 });
+
+const funFacts = [
+    "I love Star Wars!",
+    "I can speak three (tres, drei) languages!", 
+    "I enjoy hiking and working out at the gym.", 
+    "AI will never replace me.",
+    "I'm always working on a new project", 
+]
+
+setInterval(() => {
+    let currentFactIndex = 0;
+    currentFactIndex = (currentFactIndex + 1) % funFacts.length;
+    updateFunFact();
+
+}, 5000); 

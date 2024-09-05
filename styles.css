@@ -69,7 +69,10 @@ mark {
 .nav-fun-fact {
     color: grey;
     font-weight: 400;
-    
+    display: flex;
+    position: relative; 
+    top: 0%;
+    left: 50%;
 }
 /* main background */
 main {

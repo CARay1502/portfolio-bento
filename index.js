@@ -19,9 +19,43 @@ const funFacts = [
     "I'm always working on a new project", 
 ]
 
+let currentFactIndex = 0;
+const factDisplay = document.getElementById('nav-fun-fact');
+
+function updateFunFact() {
+    factDisplay.textContent = funFacts[currentFactIndex];
+}
+
 setInterval(() => {
-    let currentFactIndex = 0;
     currentFactIndex = (currentFactIndex + 1) % funFacts.length;
     updateFunFact();
-
 }, 5000); 
+
+updateFunFact();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loadingScreen = document.getElementById('loading-screen');
+    const content = document.getElementById('content');
+
+    // Check if the page was loaded before
+    const isLoadedBefore = localStorage.getItem('loadedBefore');
+
+    // If it's the first load
+    if (!isLoadedBefore) {
+        setTimeout(() => {
+            // Add the 'loaded' class to fade in the content
+            content.classList.add('loaded');
+            
+            // Remove the loading screen after animation
+            loadingScreen.style.display = 'none';
+
+            // Save in localStorage that the page was loaded before
+            localStorage.setItem('loadedBefore', true);
+        }, 3000); // Simulate loading time
+    } else {
+        // If the page was already loaded before, immediately show the content
+        loadingScreen.style.display = 'none';
+        content.classList.add('loaded');
+    }
+});
+

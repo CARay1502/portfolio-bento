@@ -44,7 +44,12 @@ h6 {
     background-color:  rgb(56, 56, 56);
     color: white;
 }
-
+.dark-mode .nav-fun-fact {
+    color: white;
+}
+.dark-mode .welcome {
+    background-color: black;
+}
 /* HIGHLIGHT TEXT SHIT */
 mark {
     background-color: #f6f3b5;
@@ -60,6 +65,37 @@ mark {
 }
 
 /* navbar DUh*/
+/* cool color bar for nav */
+.color-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    width: 100dvw;
+    z-index: 100;
+}
+.color-yellow {
+    background-color: #ffbe0b;
+}
+.color-orange {
+    background-color: #fb5607;
+}
+.color-red {
+    background-color: #FF006E;
+}
+.color-purple {
+    background-color: #8338EC;
+}
+.color-blue {
+    background-color: #3a86ff;
+}
+.bar {
+    padding: 3px;
+    width: 100%;
+    height: auto;
+}
+
+/* actual nav bar */
 .navbar {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
@@ -70,7 +106,12 @@ mark {
     color: grey;
     font-weight: 400;
     display: flex;
+    overflow: hidden;
+    text-wrap: wrap;
+    padding-left: 5px;
+    font-size: small;
 }
+
 /* main background */
 main {
     background-image: radial-gradient(#d3d3d3 1px, transparent 1px);
@@ -80,13 +121,19 @@ main {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
 }
 .container-md {
-    width: 100%;
     padding-bottom: 15px;
+    width: 100%;
 }
 .welcome {
     padding: 5px;
+    background-color: white;
+    height: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
 }
 .welcome-list {
     text-decoration: none;
@@ -107,12 +154,12 @@ a:hover {
 /* main-bento-grid */
 .container {
     padding-top: 15px;
-    width: 100dvw;
+    width: 100%;
 }
 .col {
-    border-radius: 15px;
+    border-radius: 16px; /* border is 16px because of .col-vid::border-radius */
     border: 1px;
-    border-color: rgb(202, 202, 202);
+    border-color: white;
     margin: 5px;
     width: 300px;
     height: 200px;
@@ -120,10 +167,6 @@ a:hover {
     box-shadow: 0px 0px 50px rgba(89, 0, 255, 0.25); 
     position: relative;
     overflow: hidden;
-}
-
-.col-item-large {
-    height: 100%;
 }
 .col-vid {
     width: 100%;
@@ -142,14 +185,16 @@ a:hover {
     filter: blur(1px);
 }
 .col-img {
+    object-fit: cover;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    border-radius: 15px;
+    object-fit: cover;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 .col-bio {
     color: white;
@@ -181,3 +226,51 @@ a:hover {
     color: #cacaca;
 }
 
+
+/* Fullscreen loading screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Loading image animation */
+#loading-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Hide the content initially */
+.hidden {
+    opacity: 0;
+}
+
+/* Fade in content once loaded */
+#content {
+    transition: opacity 1s ease;
+}
+
+#content.loaded {
+    opacity: 1;
+}
